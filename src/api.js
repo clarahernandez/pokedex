@@ -1,7 +1,6 @@
 const URL_BASE = 'https://pokeapi.co/api/v2';
-const MAX_POKEMON = 807;
 
-export function obtenerNombresPokemon() {
+export function obtenerNombresPokemon(MAX_POKEMON) {
     return fetch(`${URL_BASE}/pokemon/?offset=0&limit=${MAX_POKEMON}`)
     .then((respuesta) => respuesta.json())
     .then((respuestaJSON) => respuestaJSON.results);

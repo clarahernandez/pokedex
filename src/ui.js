@@ -32,28 +32,25 @@ export function agregarPokemonAPaginaGeneral(infoPokemon, callbackSeleccionarPok
     } )
 }
 
-export function mostrarCartelActualizacion(){
-document.querySelector('#pagina-individual').classList.add('oculto');
-document.querySelector('#cartel-cargando').classList.remove('oculto');
-}
-
-export function ocultarCartelActualizacion(){
-    document.querySelector('#pagina-individual').classList.remove('oculto');
-    document.querySelector('#cartel-cargando').classList.add('oculto');
-}
-
 function cargarStats(stats) {
     const $listaStats = document.querySelector('#stats')
     Object.keys(stats).forEach((index) => {
-        const $elemento = document.querySelector(`#${stats[index].stat.name}`);
-        $elemento.textContent = `${stats[index].stat.name}: ${stats[index]['base_stat']}`
+        const $barra = document.querySelector(`#${stats[index].stat.name}`);
+        $barra.textContent = `${stats[index]['base_stat']}`
+        $barra.setAttribute('value', `${stats[index]['base_stat']}`);
+        document.querySelector(`#${stats[index].stat.name}-value`).textContent = `${stats[index]['base_stat']}`
+
     });
 }
 
-function cargarImagen(urlImagen, alt) {
-    const $img = document.querySelector('#imagen-individual');
-    $img.setAttribute('src', urlImagen);
-    $img.setAttribute('alt', alt);
+function cargarImagen(infoPokemon) {
+    const $imgFrente = document.querySelector('#imagen-frente');
+    $imgFrente.setAttribute('src', infoPokemon.sprites['front_default']);
+    $imgFrente.setAttribute('alt', infoPokemon.name);
+
+    const $imgEspalda = document.querySelector('#imagen-espalda');
+    $imgEspalda.setAttribute('src', infoPokemon.sprites['back_default']);
+    $imgEspalda.setAttribute('alt', infoPokemon.name);
 }
 
 function cargarPesoyAltura(peso, altura) {
@@ -62,38 +59,50 @@ function cargarPesoyAltura(peso, altura) {
 }
 
 function cargarTipos(listaTipos) {
+  const $tipo = document.querySelector('#tipo');
+  $tipo.textContent = ''
   Object.keys(listaTipos).forEach((index) => {
-      document.querySelector(`#tipo${listaTipos[index].slot}`).textContent = listaTipos[index].type.name;
+      const $tipoNuevo = document.createElement('span');
+      $tipoNuevo.setAttribute('class', `tipos`);
+      $tipoNuevo.textContent = listaTipos[index].type.name;
+      $tipo.appendChild($tipoNuevo);
   })
 }
 
+function cargarNombre (nombre) {
+    document.querySelector('#nombre').textContent = nombre
+}
+
 export function mostrarPokemonIndividual(infoPokemon){
-    //const $paginaIndividual = document.querySelector('#pagina-individual');
-    //$paginaIndividual.innerHTML = '';
-    document.querySelector('#nombre').textContent = infoPokemon.name;
+    document.querySelector('#pagina-individual').classList.remove('oculto');
+    cargarNombre(infoPokemon.name);
     cargarStats(infoPokemon.stats);
-    cargarImagen(infoPokemon.sprites['front_default'], infoPokemon.name);
+    cargarImagen(infoPokemon);
     cargarPesoyAltura(infoPokemon.weight, infoPokemon.height);
     cargarTipos(infoPokemon.types);
     
 }
 
 export function actualizarFlechas(callbackCargarPagina) {
-    const anterior = document.querySelector('#flecha-anterior');
-    const siguiente = document.querySelector('#flecha-siguiente');
-    const paginaActual = document.querySelector('#numero-pagina');
+    const $anterior = document.querySelector('#pagina-anterior');
+    const $siguiente = document.querySelector('#pagina-siguiente');
+    const $paginaActual = document.querySelector('#numero-pagina');
 
-    anterior.addEventListener('click', () => {
-      const numeroPagina = Number(paginaActual.textContent);
-      if(numeroPagina !== 1){
-        paginaActual.textContent = numeroPagina - 1;
-        callbackCargarPagina((numeroPagina-2)*20);
+    $anterior.addEventListener('click', () => {
+      const numeroPagina = Number($paginaActual.textContent);
+      if(numeroPagina === 2){
+        $anterior.classList.add('disabled')
+      }
+      if (numeroPagina !== 1){
+      $paginaActual.textContent = numeroPagina - 1;
+      callbackCargarPagina((numeroPagina-2)*20);
     }
     });
 
-    siguiente.addEventListener('click', () => {
-      const numeroPagina = Number(paginaActual.textContent);
-      paginaActual.textContent = numeroPagina + 1;
+    $siguiente.addEventListener('click', () => {
+      $anterior.classList.remove('disabled')
+      const numeroPagina = Number($paginaActual.textContent);
+      $paginaActual.textContent = numeroPagina + 1;
       callbackCargarPagina(numeroPagina*20);
     });
 

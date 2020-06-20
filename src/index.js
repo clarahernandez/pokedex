@@ -7,10 +7,10 @@ import {
   agregarPokemonAPaginaGeneral,
   cargarNombres,
   mostrarPokemonIndividual,
-  mostrarCartelActualizacion,
-  ocultarCartelActualizacion,
   actualizarFlechas,
 } from './ui.js'
+
+const MAX_POKEMON = 890;
 
 
 async function cargarPaginaGeneral(desde = 0) {
@@ -21,14 +21,13 @@ async function cargarPaginaGeneral(desde = 0) {
 }
 
 async function actualizarPokemon(id) {
-    mostrarCartelActualizacion();
+    //mostrarCartelActualizacion();
     const infoPokemon = await obtenerInfoPokemon(id);
     mostrarPokemonIndividual(infoPokemon);
-    ocultarCartelActualizacion();
 }
 
 async function inicializar() {
-    const listaNombres = await obtenerNombresPokemon();
+    const listaNombres = await obtenerNombresPokemon(MAX_POKEMON);
     cargarNombres(listaNombres, actualizarPokemon); 
 
     cargarPaginaGeneral(0);

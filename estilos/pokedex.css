@@ -12,7 +12,95 @@ body {
     color:black;
     border: 1px solid white;
     width: 1000px;
-    height: auto;
+    height:580px;
     margin: 0 auto;
     padding: 15px;
+    /*overflow: hidden;*/
+
+}
+
+/*---------------------------------------- Container 1 -------------------------------------------*/
+.pokemon-general{
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 15px;
+}
+
+.nombre-general {
+    color: black;
+}
+
+.imagen-general {
+    background-color: white;
+    border:1px solid black;
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+#listado-pokemon {
+    width: auto;
+    display: inline;
+}
+
+/*------------------------------------ CONTAINER 2 -----------------------------------------------*/
+#container-2 {
+    border: 1px solid black;
+}
+
+#pagina-individual {
+    padding: 20px;
+}
+
+#informacion-personal {
+    text-align: center;
+    float: left;
+    width: 70%;
+    
+}
+
+#nombre {
+    font-size: 100%;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.imagen-individual {
+    background-color: white;
+    border:1px solid black;
+    width: 96px;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.cuadro-imagen-individual {
+    float:left;
+    width: 30%;
+}
+
+.tipos {
+    margin: 3px;
+}
+
+.centrado {
+    margin: 0 auto;
+}
+
+#encabezado {
+    height: 150px;
+}
+
+#flechas-pokemon{
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+}
+
+/* ---------------- BARRAS DE PROGRESO -------------------*/
+.bar {
+    border-radius: 9px; 
+    border: 0;
+    overflow: hidden;
 }
