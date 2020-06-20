@@ -39,20 +39,15 @@
 
         <div class="col-5" id="container-2">
             <div id="pagina-individual" class="oculto">
-                <div id="">
-                    <div id="informacion-personal">
+                <div class="row">
+                    <div id="informacion-personal" class="col-7">
                         <div id="nombre"></div>
                         <div><span id="weight"></span> <span id="height"></span></div>                 
                         <div id="tipo"></span></div>                 
                     </div>
-                    <div id="cuadro-imagen-individual">
-                        
+                    <div id="cuadro-imagen-individual" class="col-5">
                         <div class="imagen-individual">
                             <img id="imagen-frente" src="" alt="">
-                        </div>
-
-                        <div class="imagen-individual oculto">
-                            <img id="imagen-espalda" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -88,21 +83,21 @@
                         <span id="speed-value"></span>
                     </div>
                 </div> 
-                <ul class="pagination centrado" id="flechas-pokemon">
-                    <li class="page-item disabled" id="pokemon-anterior" >
+                <ul class="pagination"  id="paginacion-id">
+                    <li class="page-item " id="id-anterior" >
                         <a class="page-link" href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li ><a  class="nav-link disabled" href="#">
-                        <span id="id-pokemon"></span>
+                    <li ><a class="nav-link disabled" href="#">#
+                        <span id="id-actual"></span>
                     </a></li>
-                    <li class="page-item" id="pokemon-siguiente">
+                    <li class="page-item" id="id-siguiente">
                         <a class="page-link"  href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
-                </ul>     
+                </ul>   
             </div>
         </div>
 

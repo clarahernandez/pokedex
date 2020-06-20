@@ -7,10 +7,11 @@ import {
   agregarPokemonAPaginaGeneral,
   cargarNombres,
   mostrarPokemonIndividual,
-  actualizarFlechas,
+  actualizarFlechasPaginas,
+  actualizarFlechasPokemon
 } from './ui.js'
 
-const MAX_POKEMON = 890;
+const MAX_POKEMON = 807;
 
 
 async function cargarPaginaGeneral(desde = 0) {
@@ -29,10 +30,9 @@ async function actualizarPokemon(id) {
 async function inicializar() {
     const listaNombres = await obtenerNombresPokemon(MAX_POKEMON);
     cargarNombres(listaNombres, actualizarPokemon); 
-
     cargarPaginaGeneral(0);
-    
-    actualizarFlechas(cargarPaginaGeneral);
+    actualizarFlechasPaginas(cargarPaginaGeneral);
+    actualizarFlechasPokemon(actualizarPokemon, MAX_POKEMON);
     //actualizarPokemon();
 }
 

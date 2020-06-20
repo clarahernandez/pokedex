@@ -56,7 +56,6 @@ body {
 
 #informacion-personal {
     text-align: center;
-    float: left;
     width: 70%;
     
 }
@@ -70,14 +69,16 @@ body {
 .imagen-individual {
     background-color: white;
     border:1px solid black;
-    width: 96px;
+    width: 130px;
+    height: 130px;
     overflow: hidden;
     border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .cuadro-imagen-individual {
-    float:left;
-    width: 30%;
 }
 
 .tipos {
@@ -92,15 +93,22 @@ body {
     height: 150px;
 }
 
-#flechas-pokemon{
-    margin: 0 auto;
-    bottom: 0;
-    position: absolute;
-}
-
 /* ---------------- BARRAS DE PROGRESO -------------------*/
 .bar {
     border-radius: 9px; 
     border: 0;
     overflow: hidden;
+}
+
+/*-------------------- PAGINACION ID ---------------------*/
+
+#paginacion-id{
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    margin-top: 20px;
+}
+
+#id-actual{
+    width: 20px;
 }

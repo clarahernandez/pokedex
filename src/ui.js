@@ -47,10 +47,6 @@ function cargarImagen(infoPokemon) {
     const $imgFrente = document.querySelector('#imagen-frente');
     $imgFrente.setAttribute('src', infoPokemon.sprites['front_default']);
     $imgFrente.setAttribute('alt', infoPokemon.name);
-
-    const $imgEspalda = document.querySelector('#imagen-espalda');
-    $imgEspalda.setAttribute('src', infoPokemon.sprites['back_default']);
-    $imgEspalda.setAttribute('alt', infoPokemon.name);
 }
 
 function cargarPesoyAltura(peso, altura) {
@@ -73,6 +69,10 @@ function cargarNombre (nombre) {
     document.querySelector('#nombre').textContent = nombre
 }
 
+function cargarId(id){
+  document.querySelector('#id-actual').textContent = id;
+}
+
 export function mostrarPokemonIndividual(infoPokemon){
     document.querySelector('#pagina-individual').classList.remove('oculto');
     cargarNombre(infoPokemon.name);
@@ -80,10 +80,11 @@ export function mostrarPokemonIndividual(infoPokemon){
     cargarImagen(infoPokemon);
     cargarPesoyAltura(infoPokemon.weight, infoPokemon.height);
     cargarTipos(infoPokemon.types);
+    cargarId(infoPokemon.id);
     
 }
 
-export function actualizarFlechas(callbackCargarPagina) {
+export function actualizarFlechasPaginas(callbackCargarPagina) {
     const $anterior = document.querySelector('#pagina-anterior');
     const $siguiente = document.querySelector('#pagina-siguiente');
     const $paginaActual = document.querySelector('#numero-pagina');
@@ -108,4 +109,31 @@ export function actualizarFlechas(callbackCargarPagina) {
 
 }
   
+export function actualizarFlechasPokemon(callbackCargarPokemon, MAX_POKEMON){
+  const $idAnterior = document.querySelector('#id-anterior');
+  const $idSiguiente = document.querySelector('#id-siguiente');
+  const $idActual = document.querySelector('#id-actual');
+
+  $idAnterior.addEventListener('click', () => {
+    let id = Number($idActual.textContent);
+    if (id === 1){
+      id = MAX_POKEMON;
+    } else {
+      id = id - 1;
+    }
+    $idActual.textContent = id;
+    callbackCargarPokemon(id);
+});
+
+$idSiguiente.addEventListener('click', () => {
+    let id = Number($idActual.textContent);
+    if(id === MAX_POKEMON){
+        id = 1;
+    } else {
+        id = id + 1;
+    };
+    $idActual.textContent = id;
+    callbackCargarPokemon(id);
+  });
+}
   
