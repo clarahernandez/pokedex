@@ -12,8 +12,3 @@ export function obtenerInfoPokemon(id) {
     .then((respuesta) => respuesta.json());
 }
 
-export function obtenerPaginaPokemon(desde = 0) {
-    return fetch(`${URL_BASE}/pokemon/?offset=${desde}0&limit=20`)
-    .then((respuesta) => respuesta.json())
-    .then((respuestaJSON) => respuestaJSON.results);
-}
