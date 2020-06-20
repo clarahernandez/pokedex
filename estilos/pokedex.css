@@ -3,8 +3,13 @@ body {
     height: 100vh;
 }
 
+#listado-pokemon {
+    width: auto;
+    display: inline;
+}
+
 #pokedex {
-    background-color: rgb(133, 29, 29);
+    background-color: rgb(219, 213, 213);
     color:black;
     border: 1px solid white;
     width: 1000px;
@@ -12,11 +17,6 @@ body {
     margin: 0 auto;
     padding: 15px;
 }
-
-#lista-pokemon {
-    border: 1px solid black;
-}
-
 .pokemon-general{
     height: auto;
     width: auto;
@@ -33,13 +33,20 @@ body {
     border:1px solid black;
     height: 70px;
     width: 70px;
-
+    overflow: hidden;
+    border-radius: 10%;
 }
 
-#seccion-1 {
-    border: 1px solid black;
-}
 
 #seccion-2 {
     border: 1px solid black;
+}
+
+#imagen-individual {
+    background-color: white;
+    border:1px solid black;
+    height: 96px;
+    width: 96px;
+    overflow: hidden;
+    border-radius: 10%;
 }
