@@ -1,10 +1,6 @@
 import { actualizarPokemon, } from './datos-pokemon.js'
 import { obtenerPagina, } from '../api.js'
 
-export async function cargarNombres() {
-    
-  }
-  
 export function actualizarFlechasPaginas() {
   const $anterior = document.querySelector('#pagina-anterior');
   const $siguiente = document.querySelector('#pagina-siguiente');
