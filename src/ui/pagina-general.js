@@ -88,7 +88,8 @@ function ocultarCartelCarga() {
 
 export function cargarBuscador() {
     document.querySelector('#buscador').onclick = () => {
+        document.querySelector('#error-buscador').classList.add('oculto');
         const $inputBuscador = document.querySelector('#inputBuscador').value;
-        actualizarPokemon($inputBuscador);
+          actualizarPokemon($inputBuscador);
     }
 }

@@ -5,11 +5,8 @@ import { cargarPokemon as cargarPokemonDeLocalStorage,
     guardarListadoPokemones,
     guardarPokemon } from '../storage/pokemon.js'
 
-export async function cargarPokemon(id) {
-    if( id === undefined) {
-        throw new Error('Se necesita un identificador para cargar un pokemón');
-    }
-
+    export async function cargarPokemon(id) {
+    
     try {
         return cargarPokemonDeLocalStorage(id);
     } catch (e) {

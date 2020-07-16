@@ -44,7 +44,7 @@ function cargarId(id){
   document.querySelector('#id-pokemon').textContent = `#${id}`;
 }
 
-function mostrarPokemonIndividual(infoPokemon){
+function cargarDatosPokemon(infoPokemon){
     document.querySelector('#pagina-individual').classList.remove('oculto');
     cargarNombre(infoPokemon.name);
     cargarStats(infoPokemon.stats);
@@ -56,20 +56,41 @@ function mostrarPokemonIndividual(infoPokemon){
 
 export async function actualizarPokemon(referencia) {
   mostrarCartelCarga();
-  const infoPokemon = await cargarPokemon(referencia);
-  mostrarPokemonIndividual(infoPokemon);
-  ocultarCartelCarga();
+  ocultarError();
+  try {
+    const infoPokemon = await cargarPokemon(referencia);
+    cargarDatosPokemon(infoPokemon);
+    ocultarCartelCarga();
+    mostrarStats();
+  } catch(e) {
+    ocultarCartelCarga();
+    ocultarStats();
+    mostrarError();
+  }
 }
 
 function mostrarCartelCarga(){
-  document.querySelector('#pagina-individual-cargando').textContent = 'Cargando...';
+  document.querySelector('#pagina-individual-cargando').textContent = 'Loading...';
   document.querySelector('#pagina-individual-cargando').classList.remove('oculto');
 
-  document.querySelector('#pagina-individual').classList.add('oculto');
 }
 
 function ocultarCartelCarga(){
-  document.querySelector('#pagina-individual').classList.remove('oculto');
   document.querySelector('#pagina-individual-cargando').classList.add('oculto');
+}
 
+function mostrarStats() {
+  document.querySelector('#pagina-individual').classList.remove('oculto');
+}
+
+function ocultarStats() {
+  document.querySelector('#pagina-individual').classList.add('oculto');
+}
+
+function mostrarError() {
+  document.querySelector('#error-buscador').classList.remove('oculto');
+}
+
+function ocultarError() {
+  document.querySelector('#error-buscador').classList.add('oculto');
 }

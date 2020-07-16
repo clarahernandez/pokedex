@@ -65,6 +65,10 @@ body {
     width: 50px;
 }
 
+#error-buscador {
+    color: red;
+}
+
 /*------------------------------------ CONTAINER 2 -----------------------------------------------*/
 #container-2 {
     border: 1px solid black;
