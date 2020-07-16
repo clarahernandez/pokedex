@@ -1,6 +1,5 @@
-import {
-  obtenerInfoPokemon,
-} from '../api.js'
+import { cargarPokemon } from '../servicios/pokemon.js'
+
 
 
 
@@ -57,7 +56,7 @@ function mostrarPokemonIndividual(infoPokemon){
 
 export async function actualizarPokemon(referencia) {
   mostrarCartelCarga();
-  const infoPokemon = await obtenerInfoPokemon(referencia);
+  const infoPokemon = await cargarPokemon(referencia);
   mostrarPokemonIndividual(infoPokemon);
   ocultarCartelCarga();
 }

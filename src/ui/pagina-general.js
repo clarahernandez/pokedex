@@ -1,5 +1,5 @@
 import { actualizarPokemon, } from './datos-pokemon.js'
-import { obtenerPagina, } from '../api.js'
+import { cargarListadoPokemones } from '../servicios/pokemon.js'
 
 export function actualizarFlechasPaginas() {
   const $anterior = document.querySelector('#pagina-anterior');
@@ -38,10 +38,13 @@ export function actualizarFlechasPaginas() {
   
 export async function cargarPagina(numero) {
   mostrarCartelCarga();
-  const pagina = await obtenerPagina(numero);
+  const pagina = await cargarListadoPokemones(numero);
+
   const max = pagina.count;
   document.querySelector('#max-pokemones').textContent = max;
+
   const lista = pagina.results;
+  
   const columna1 = document.querySelector('#listado-columna-1');
   const columna2 = document.querySelector('#listado-columna-2');
 
@@ -76,17 +79,11 @@ export async function cargarPagina(numero) {
 function mostrarCartelCarga() {
     document.querySelector('#listados-cargando').classList.remove('oculto');
     document.querySelector('#listados').classList.add('oculto');
-    
-    document.querySelector('#max-pokemones-cargando').classList.remove('oculto');
-    document.querySelector('#max-pokemones').classList.add('oculto');
 }
 
 function ocultarCartelCarga() {
     document.querySelector('#listados').classList.remove('oculto');
     document.querySelector('#listados-cargando').classList.add('oculto');
-    
-    document.querySelector('#max-pokemones').classList.remove('oculto');
-    document.querySelector('#max-pokemones-cargando').classList.add('oculto');
 }
 
 export function cargarBuscador() {
