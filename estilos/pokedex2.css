@@ -1,0 +1,138 @@
+* {
+    margin-top: 2px;
+    padding: 10px;
+    padding-top: 0px;
+    box-sizing: border-box; /*Para que las cajas no se desborden unas con otras*/
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0px 10px;
+    margin: 0px 160px;
+}
+/*                             HEADER                                 */
+#header {
+    background-color: black;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 50px;
+}
+
+#titulo {
+    background-color: pink;
+    flex: 4 1 auto;
+}
+#buscador {
+    background-color: pink;
+    flex: 2 1 auto;
+}
+#total {
+    background-color: pink;
+    flex: 0 1 auto;
+}
+
+.boton-paginador {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    margin: 4px 2px;
+    padding: 8px 16px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+a:hover:not(.active) {background-color: #ddd;}
+/*-----------------------PAGINA ----------------------------------*/
+#pagina {
+    background-color: black;
+    display: flex;
+    min-height: 500px;
+}
+/*-----------container 1-------------------*/
+#container1{
+    background-color: white;
+    flex: 1.9 1 auto;
+}
+#paginador {
+    background-color: rgb(40, 40, 141);
+}
+#listados {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(160, 49, 49);
+    grid-column-gap: 0px
+}
+.caja{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 2px;
+    font-size: 30px;
+    text-align: center;
+    margin: 1px;
+}
+
+/*-----------container 2-------------------*/
+
+#container2{
+    background-color: rgb(184, 184, 55);
+    flex: 1 1 auto;
+    
+}
+
+#subcontainer{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 70% 10%;
+}
+
+#caja1{
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#caja2 {
+    text-align: center;
+    border: 1px solid black;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+#caja3{
+    text-align: left;
+
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+#caja4{
+    text-align: center;
+
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+.oculto{
+    display: none;
+}
+
+li {
+    display: inline;
+}
+

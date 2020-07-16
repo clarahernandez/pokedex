@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Módulos de CSS  -->
+    <!-- Módulos de CSS-->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./estilos/pokedex.css">
+    
 
     <!-- Icono de favicon y título-->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
@@ -15,12 +16,13 @@
 </head>
 <body>
     <div id="pokedex" class="container row">
-        <div id="encabezado-principal">
+        <header>
+            <div></div>
             <div id="titulo">POKEDEX</div>
             <div id="total">Count: 
                 <span id="max-pokemones"></span>
             </div>
-        </div>
+        </header>
         <div class="col-7" id="container-1">
             <div class="row">
                 <div class="col-7">
@@ -28,7 +30,7 @@
                     <div class="form-group mx-sm-3 mb-2">
                       <input type="text" class="form-control" id="inputBuscador" placeholder="Name or id">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2" id="buscador">
+                    <button type="submit" class="btn btn-primary mb-2" id="boton-buscador">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                             <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -63,7 +65,7 @@
         <div class="col-5" id="container-2">
             <div id="pagina-individual-cargando">Select a Pokemon</div>
             <div id="error-buscador" class="oculto">No Pokemon matched your search!</div>
-            <div id="pagina-individual" class="oculto">
+            <div id="subcontainer" class="oculto">
                 <div class="row">
                     <div id="informacion-personal" class="col-7">
                         <div id="nombre"></div>
@@ -80,7 +82,7 @@
                     <div>
                         <div>HP</div>
                         <progress id="hp" class="bar" value="5" max="250">HP</progress>
-                        <span id="hp-value">2</span>
+                        <span id="hp-value"></span>
                     </div>
                     <div>
                         <div>ATTACK</div>

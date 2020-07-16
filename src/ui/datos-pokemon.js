@@ -45,7 +45,7 @@ function cargarId(id){
 }
 
 function cargarDatosPokemon(infoPokemon){
-    document.querySelector('#pagina-individual').classList.remove('oculto');
+    document.querySelector('#subcontainer').classList.remove('oculto');
     cargarNombre(infoPokemon.name);
     cargarStats(infoPokemon.stats);
     cargarImagen(infoPokemon);
@@ -80,11 +80,11 @@ function ocultarCartelCarga(){
 }
 
 function mostrarStats() {
-  document.querySelector('#pagina-individual').classList.remove('oculto');
+  document.querySelector('#subcontainer').classList.remove('oculto');
 }
 
 function ocultarStats() {
-  document.querySelector('#pagina-individual').classList.add('oculto');
+  document.querySelector('#subcontainer').classList.add('oculto');
 }
 
 function mostrarError() {

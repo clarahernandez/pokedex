@@ -19,7 +19,7 @@ body {
 
 }
 
-#encabezado-principal{
+header{
     width: 100%;
     height: 30px;
     display: flex;
@@ -78,7 +78,7 @@ body {
     padding: 20px;
 }
 
-#informacion-personal {
+#subcontainer {
     text-align: center;
     width: 70%;
     
